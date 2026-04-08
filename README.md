@@ -1,31 +1,43 @@
-# PureMac
+<p align="center">
+  <img src="screenshot.png" alt="PureMac" width="700">
+</p>
 
-A free, open-source macOS cleaning utility. Keep your Mac fast, clean, and optimized.
+<h1 align="center">PureMac</h1>
 
-![macOS](https://img.shields.io/badge/macOS-13.0+-blue)
-![Swift](https://img.shields.io/badge/Swift-5.9-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+<p align="center">
+  <b>Free, open-source macOS cleaner.</b> The CleanMyMac alternative that respects your privacy.<br>
+  No subscriptions. No telemetry. No data collection. Just a clean Mac.
+</p>
 
-## Features
+<p align="center">
+  <a href="https://github.com/momenbasel/PureMac/releases/latest"><img src="https://img.shields.io/github/v/release/momenbasel/PureMac?style=flat-square&label=Download" alt="Latest Release"></a>
+  <a href="https://github.com/momenbasel/PureMac/actions/workflows/build.yml"><img src="https://img.shields.io/github/actions/workflow/status/momenbasel/PureMac/build.yml?style=flat-square&label=Build" alt="Build Status"></a>
+  <img src="https://img.shields.io/badge/macOS-13.0+-blue?style=flat-square" alt="macOS 13.0+">
+  <img src="https://img.shields.io/badge/Swift-5.9-orange?style=flat-square" alt="Swift 5.9">
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/momenbasel/PureMac?style=flat-square" alt="MIT License"></a>
+  <a href="https://github.com/momenbasel/PureMac/stargazers"><img src="https://img.shields.io/github/stars/momenbasel/PureMac?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/momenbasel/PureMac/releases"><img src="https://img.shields.io/github/downloads/momenbasel/PureMac/total?style=flat-square&label=Downloads" alt="Downloads"></a>
+</p>
 
-- **Smart Scan** - Scan all categories at once with a single click
-- **System Junk** - Clean system caches, logs, and temporary files
-- **User Cache** - Remove application caches and browser data
-- **Mail Attachments** - Clear downloaded mail attachments
-- **Trash Bins** - Empty your Trash
-- **Large & Old Files** - Find files over 100 MB or older than 1 year
-- **Purgeable Space** - Purge APFS purgeable disk space (Time Machine snapshots)
-- **Xcode Junk** - Clean derived data, archives, and simulator caches
-- **Homebrew Cache** - Clear Homebrew download cache
-- **Scheduled Cleaning** - Automatic scans on configurable intervals (hours/days/weeks)
-- **Auto-Purge** - Automatically purge purgeable files on schedule
-- **Click-to-inspect** - Click any category to see exactly what will be removed
+<p align="center">
+  <a href="#install">Install</a> -
+  <a href="#features">Features</a> -
+  <a href="#screenshots">Screenshots</a> -
+  <a href="#comparison">Comparison</a> -
+  <a href="#contributing">Contributing</a>
+</p>
 
-## Screenshots
+---
 
-| Smart Scan | Category Detail |
-|---|---|
-| ![Smart Scan](screenshots/smart-scan.png) | ![System Junk Detail](screenshots/system-junk-detail.png) |
+## Why PureMac?
+
+Most Mac cleaning apps cost $30-50/year, collect usage data, and show upsell popups. PureMac does the same job for free, runs entirely offline, and the source code is right here for you to audit.
+
+- **100% free** - no trial, no premium tier, no subscriptions
+- **100% private** - no analytics, no telemetry, no network calls
+- **100% native** - built with SwiftUI, no Electron, no web views
+- **100% open source** - MIT licensed, audit the code yourself
+- **Signed & notarized** - Apple Developer ID, no Gatekeeper warnings
 
 ## Install
 
@@ -38,32 +50,65 @@ brew install --cask puremac
 
 ### Direct Download
 
-Download the latest `.app` from [Releases](https://github.com/momenbasel/PureMac/releases), unzip, and drag to `/Applications`.
+Download the latest `.app` from [Releases](https://github.com/momenbasel/PureMac/releases/latest), unzip, and drag to `/Applications`.
 
-> The app is signed and notarized with Apple Developer ID - no security warnings on download.
+> Signed and notarized with Apple Developer ID - installs without security warnings.
 
 ### Mac App Store
 
-PureMac is also available on the [Mac App Store](https://apps.apple.com/app/puremac/id6761837287) (pending review).
+<a href="https://apps.apple.com/app/puremac/id6761837287">
+  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-mac-app-store.svg" alt="Download on the Mac App Store" height="48">
+</a>
 
 ### Build from source
 
 ```bash
-# Prerequisites
 brew install xcodegen
-
-# Clone and build
 git clone https://github.com/momenbasel/PureMac.git
 cd PureMac
 xcodegen generate
 xcodebuild -project PureMac.xcodeproj -scheme PureMac -configuration Release -derivedDataPath build build
-
-# Run
 open build/Build/Products/Release/PureMac.app
-
-# Or open in Xcode
-open PureMac.xcodeproj
 ```
+
+## Features
+
+- **Smart Scan** - One-click scan across all categories
+- **System Junk** - System caches, logs, and temporary files
+- **User Cache** - Application caches and browser data
+- **Mail Attachments** - Downloaded mail attachments
+- **Trash Bins** - Empty all Trash bins
+- **Large & Old Files** - Files over 100 MB or older than 1 year
+- **Purgeable Space** - APFS purgeable disk space (Time Machine snapshots)
+- **Xcode Junk** - Derived data, archives, and simulator caches
+- **Homebrew Cache** - Homebrew download cache
+- **Scheduled Cleaning** - Automatic scans on configurable intervals
+- **Auto-Purge** - Automatically purge purgeable files on schedule
+- **Click-to-inspect** - See exactly what will be removed before cleaning
+
+## Screenshots
+
+| Smart Scan | Category Detail | File Inspector |
+|---|---|---|
+| ![Smart Scan](screenshots/smart-scan.png) | ![System Junk](screenshots/system-junk-detail.png) | ![Category View](screenshots/category-view.png) |
+
+## Comparison
+
+How does PureMac stack up against other Mac cleaning tools?
+
+| Feature | PureMac | CleanMyMac X | OnyX | AppCleaner |
+|---|---|---|---|---|
+| Price | **Free** | $39.95/yr | Free | Free |
+| Open source | **Yes** | No | No | No |
+| Privacy (no telemetry) | **Yes** | No | Yes | Yes |
+| System cache cleaning | **Yes** | Yes | Yes | No |
+| Xcode junk cleaning | **Yes** | Yes | No | No |
+| Scheduled auto-cleaning | **Yes** | Yes | No | No |
+| Purgeable space purging | **Yes** | No | No | No |
+| App uninstaller | No | Yes | No | Yes |
+| Malware scanner | No | Yes | No | No |
+| Native SwiftUI | **Yes** | No (AppKit) | No (AppKit) | No (AppKit) |
+| macOS Ventura+ | **Yes** | Yes | Yes | Yes |
 
 ## Scheduling
 
@@ -92,8 +137,18 @@ open PureMac.xcodeproj
 - Only removes caches, logs, temporary files, and user-selected items
 - Large & Old Files are **not auto-selected** - you choose what to remove
 - All operations are non-destructive to the operating system
-- Purgeable space calculation uses only Time Machine snapshots, not total free space
+- Purgeable space uses only Time Machine snapshots, not actual free space
+
+## Contributing
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  If PureMac saved you time or money, consider giving it a star on GitHub.
+</p>
