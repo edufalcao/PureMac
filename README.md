@@ -29,9 +29,22 @@ A free, open-source macOS cleaning utility. Keep your Mac fast, clean, and optim
 
 ## Install
 
-### Download (recommended)
+### Homebrew (recommended)
+
+```bash
+brew tap momenbasel/tap
+brew install --cask puremac
+```
+
+### Direct Download
 
 Download the latest `.app` from [Releases](https://github.com/momenbasel/PureMac/releases), unzip, and drag to `/Applications`.
+
+> **Note:** Since the app is not yet notarized, macOS may show an "unidentified developer" warning on first launch. Right-click the app and select **Open** to bypass this, or run: `xattr -d com.apple.quarantine /Applications/PureMac.app`
+
+### Mac App Store
+
+PureMac is also available on the [Mac App Store](https://apps.apple.com/app/puremac/id6761837287) (pending review).
 
 ### Build from source
 
