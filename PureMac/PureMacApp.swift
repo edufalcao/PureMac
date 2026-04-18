@@ -16,6 +16,8 @@ struct PureMacApp: App {
     @AppStorage("PureMac.OnboardingComplete") private var onboardingComplete = false
 
     init() {
+        // XCTest injects launch arguments that should not trigger CLI mode.
+        guard ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil else { return }
         let cliArguments = CommandLine.arguments.dropFirst().filter { !$0.hasPrefix("-psn_") }
         if !cliArguments.isEmpty {
             CLI.run()
